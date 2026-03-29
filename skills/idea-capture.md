@@ -6,6 +6,14 @@ During a working session, developers often have ideas unrelated to the current t
 These ideas are valuable but acting on them immediately derails focus.
 Capture them quickly, return to the current task.
 
+## Rule: Capture Before Code
+
+Before implementing any new feature or request, capture it as a Brain idea first.
+Then implement. Never start coding before the idea is captured. This ensures:
+- Every piece of work is tracked and searchable
+- Progress is visible from the start
+- Nothing gets built without a record of why
+
 ## When to Trigger
 
 Recognize idea signals during a session:
