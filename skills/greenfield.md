@@ -88,6 +88,17 @@ developer acknowledges but defers.
 - Install dependencies
 - Return to setup.md for Makefile, CLAUDE.md, hooks
 
+## Resuming a Partial Greenfield
+
+If you're here because of an interrupted session (last-sync.md has `status: in-progress`
+and `project_type: greenfield`):
+
+1. Check what already exists — package.json, src/, .gitignore, dependencies installed?
+2. Read the `notes` field in last-sync.md for decisions already made (stack, framework, etc.)
+3. If Brain is available, recall stored memories (vision, technology, architecture decisions)
+4. Don't re-ask questions whose answers are already recorded — pick up from where you left off
+5. If the scaffold is complete but setup steps remain, return to 01-foundation.md
+
 ## Important
 
 - Keep it fast — 10-15 minutes total, not an hour

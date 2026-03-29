@@ -20,8 +20,22 @@ This file is gitignored — it's local to each developer.
 project: my-app
 shipwright_sha: abc123f
 synced_at: 2025-03-28
+status: complete
+project_type: existing
+phase: 1
+step: 6
+completed_steps:
+  - "step 1: project understanding"
+  - "step 2: makefile"
+  - "step 3: claude.md"
+  - "step 4: developer profile"
+  - "step 5: discovery"
+  - "step 6: summary"
 notes: Initial onboarding — makefile, CLAUDE.md, pre-commit hooks
 ```
+
+**Important:** If `status: in-progress`, the project has an interrupted onboarding.
+Do NOT run the update flow — redirect to setup.md which will handle resuming.
 
 ## When to Run
 
@@ -30,10 +44,11 @@ that has been onboarded with shipwright, check for updates:
 
 1. Read `../shipwright/local/projects/{project-name}/last-sync.md`
 2. If it doesn't exist, skip — this project hasn't been onboarded yet
-3. Get the stored SHA
-4. Get the current shipwright HEAD: `git -C ../shipwright rev-parse HEAD`
-5. If they match, nothing changed — proceed normally
-6. If they differ, run the diff
+3. If `status: in-progress` → redirect to setup.md to resume onboarding. Stop here.
+4. Get the stored SHA
+5. Get the current shipwright HEAD: `git -C ../shipwright rev-parse HEAD`
+6. If they match, nothing changed — proceed normally
+7. If they differ, run the diff
 
 ## Checking What Changed
 
