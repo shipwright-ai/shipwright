@@ -2,8 +2,18 @@
 
 ## Purpose
 
-Help the developer understand Claude Code rules and optimize their project
-by moving file-specific instructions out of CLAUDE.md into scoped rules.
+Teach developers that Claude Code rules exist and when they become useful.
+Don't push splitting — just plant the seed so they know the option is there.
+
+## When to Trigger
+
+- Developer asks about organizing CLAUDE.md or mentions it's getting long
+- CLAUDE.md has grown past ~50 lines with file-specific sections
+- You notice repeated file-specific conventions that could be scoped
+
+**Guard: If CLAUDE.md is under 50 lines, don't suggest splitting.** Just mention
+that rules exist: "By the way, when your CLAUDE.md grows, you can scope
+file-specific instructions with `.claude/rules/`. Not needed yet."
 
 ## Context for the Developer
 
