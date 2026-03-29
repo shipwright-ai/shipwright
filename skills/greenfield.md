@@ -11,7 +11,7 @@ Knowledge first, code second. Fast, conversational, opinionated but flexible.
 
 "What are you building? One paragraph — what it does and why it matters."
 
-Store with `brain.create_memory(kind: "vision", title: ..., summary: ..., content: ..., by: "developer")`. If no Brain, write to docs/vision/.
+Store with `brain.create_memory(kind: "vision", ...)` — Brain returns the file path and format, write content there. If no Brain, write to docs/vision/.
 
 Push back:
 - "What's the minimum useful version? What can wait?"

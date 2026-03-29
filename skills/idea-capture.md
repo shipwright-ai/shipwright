@@ -60,20 +60,19 @@ Brain sees 2/4 → in progress. No extra status field needed.
 2. Use `brain.create_memory`:
    - title: brief idea title
    - summary: one sentence capturing the core idea
-   - content: checkbox-formatted steps (see format above) + context
    - kind: "ideas"
    - by: your agent name
    - tags: relevant tags (reuse existing from brain overview when possible)
    - refs: if the idea relates to an existing memory, link it
-3. If the developer pasted images or links, use `brain.attach_to_memory` to save them.
+3. Brain returns the file path, format guide, and next steps — follow them all.
 4. Return to current task: "Captured to Brain. Back to [current task]..."
 
 ### Updating progress in Brain
 
 When you complete work related to a captured idea:
-1. Fetch the idea memory from Brain
-2. Check off the completed steps
-3. Update the memory content
+1. Read the idea's memory file
+2. Check off the completed checkboxes
+3. Save the file
 Brain automatically reflects the new completion ratio in search results.
 
 ### If Brain is not available:
