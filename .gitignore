@@ -1,2 +1,14 @@
 # Developer's personal space — never committed
 local/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Claude Code
+.claude/settings.local.json
