@@ -15,8 +15,13 @@ one. If the developer wants to skip something, that's their call — but you mus
 present it first.
 
 **Preserve existing work.** When modifying CLAUDE.md, Makefile, or any existing file,
-READ IT FIRST. Add sections — never overwrite what's already there. The developer's
+READ IT FIRST. Add sections -- never overwrite what's already there. The developer's
 existing setup is intentional.
+
+**Plan mode for additions.** When the developer proposes changes, additions, or
+customizations during onboarding, switch to plan mode first. Discuss the scope,
+agree on the approach, then implement. Never go straight to code when the developer
+brings something new to the table.
 
 ## Progress Tracking
 
