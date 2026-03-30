@@ -6,15 +6,19 @@ During a working session, developers often have ideas unrelated to the current t
 These ideas are valuable but acting on them immediately derails focus.
 Capture them quickly, return to the current task.
 
-## Rule: Capture, Verify, Then Code
+## Rule: Capture, Refine, Then Code
 
 Before implementing any new feature or request:
 1. **Capture** — create a Brain idea with checklist steps
-2. **Verify** — present the plan to the developer and wait for approval
-3. **Implement** — only start coding after developer confirms
+2. **Refine** — discuss the plan with the developer. This is a conversation:
+   - Present the steps, ask if anything is missing or wrong
+   - Developer adds, removes, reorders, asks questions
+   - You update the idea in Brain as the plan evolves
+   - Keep going until the developer says "looks good" or "go"
+3. **Implement** — only start coding after developer agrees on the plan
 
-Never skip step 2. The developer may adjust scope, reorder steps, or say
-"not now." The captured idea becomes the agreed contract for the work.
+Never skip step 2. The idea is a living draft until the developer approves it.
+The final version becomes the agreed contract for the work.
 
 ## When to Trigger
 

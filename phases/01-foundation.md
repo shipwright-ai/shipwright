@@ -79,8 +79,8 @@ Before decisions → read docs/decisions.md
 ## Idea Capture
 Before implementing any new feature or request:
 1. Capture it as a Brain idea first — never code before capturing
-2. Present the plan (checklist steps) to the developer for approval
-3. Only start implementing after developer confirms
+2. Refine the plan with the developer — discuss, adjust, iterate until they approve
+3. Only start implementing after developer says go
 Read ../shipwright/skills/idea-capture.md for the full workflow.
 
 ## Post-Implementation
