@@ -1,48 +1,64 @@
 # Shipwright
 
-A methodology toolkit that improves AI-assisted web development. Clone once, reference from your projects. Never copied into target projects.
+Stop Claude Code from guessing. Shipwright gives it a structured workflow: capture ideas before coding, verify plans with the developer, track progress with checkboxes, and remember decisions across sessions.
 
-## What It Does
+Clone once, reference from any project. Nothing gets copied in.
 
-Shipwright teaches Claude Code how to work well. Skills guide behavior, hooks enforce quality, and Brain gives persistent memory across sessions.
+## The Problem
 
-- **Skills** -- stack-agnostic guidance files that teach Claude patterns, not templates
-- **Hooks** -- automated gates that run before/after actions (pre-commit, post-implement)
-- **Brain** -- persistent memory for ideas, decisions, architecture, bugs, and learnings
+Claude Code is powerful but chaotic. Without structure it:
+- Starts coding before understanding the full scope
+- Forgets decisions made earlier in the session
+- Creates duplicate work across sessions
+- Doesn't track what's done vs what's pending
+- Loses context as conversations grow
 
-## With Brain
+## What Shipwright Does
 
-[Shipwright Brain](https://github.com/shipwright-ai/shipwright-brain) is the memory layer. When connected:
+**Structured workflow** -- Capture, Refine, Implement, Update. Every feature starts as a tracked idea with checkboxes. Claude discusses the plan with the developer before writing code. After implementation, it updates progress and context.
 
-- **Capture before code** -- every feature/fix starts as a Brain idea with checkboxes
-- **Progress tracking** -- checkboxes auto-derive status (not started / in progress / done)
-- **5W context** -- every memory gets structured context: Why, What, Who, How
-- **Format guides** -- Brain teaches Claude the right format for each kind of memory
-- **Aggregate progress** -- parent ideas roll up progress from all sub-memories
-- **Search by status** -- "what should I do next?" finds in-progress then not-started work
-- **Screenshots with interaction** -- capture specific UI states by clicking through menus
-- **Tags grow organically** -- no predefined categories, team vocabulary emerges from usage
+**Skills** -- stack-agnostic guidance files that teach Claude patterns, not templates. How to set up a Makefile, when to split CLAUDE.md into rules, how to capture ideas, when to compact context.
 
-## With Brain UI
+**Brain** ([shipwright-brain](https://github.com/shipwright-ai/shipwright-brain)) -- persistent memory via MCP. Ideas, decisions, architecture, bugs -- all as markdown with frontmatter. Brain teaches Claude the right format for each kind, detects duplicates via embeddings, auto-links related memories, and tracks progress through the tree.
 
-[Brain UI](https://github.com/shipwright-ai/brain-ui) is the visual layer for humans:
+**Brain UI** ([brain-ui](https://github.com/shipwright-ai/brain-ui)) -- visual layer for humans. Browse memories, filter by tags and status, view the connection graph, see progress badges. Auto-refreshes as Claude works.
 
-- Browse memories by kind with progress badges
-- Filter by tags and status with faceted search
-- View the memory graph -- connections between decisions, ideas, and features
-- Everything auto-refreshes as Claude works
+## Key Workflows
+
+### Capture, Refine, Implement, Update
+
+```
+Developer: "We need OAuth login"
+    |
+    v
+1. Capture -- Claude creates Brain idea with checklist steps
+2. Refine  -- Developer and Claude discuss, adjust scope, iterate
+3. Implement -- Only after developer says "go"
+4. Update  -- Check off steps, update context, capture decisions
+```
+
+### What Should I Do Next?
+
+Claude searches Brain for in-progress ideas first, then not-started ones. The developer picks what to work on. Progress is always visible.
+
+### Smart Context
+
+Claude compacts context at natural boundaries -- after commits, between tasks. Long sessions stay sharp instead of drowning in old context.
 
 ## Quick Start
 
 ```bash
-# In your project
+# Clone shipwright next to your projects
+git clone https://github.com/shipwright-ai/shipwright.git
+
+# In your project, set up Brain
 npx shipwright-brain init
 
-# Add shipwright skills to your Claude Code session
-# Claude reads ../shipwright/setup.md to onboard your project
+# Start a Claude Code session and run:
+# "Read ../shipwright/setup.md and onboard this project"
 ```
 
-Onboarding takes 5 minutes. Zero disruption to existing workflows.
+Onboarding takes 5 minutes. It sets up a Makefile, CLAUDE.md with workflow rules, context compaction, and developer profile. Zero disruption to existing workflows.
 
 ## How It Works
 
@@ -50,23 +66,25 @@ Onboarding takes 5 minutes. Zero disruption to existing workflows.
 shipwright/           <- methodology (this repo)
   skills/             <- what Claude should know
   hooks/              <- quality gates
-  setup.md            <- onboarding script
+  setup.md            <- onboarding conversation
 
 shipwright-brain/     <- memory (separate repo)
-  src/                <- MCP server + API + UI
+  src/                <- MCP server + API
   docs/               <- all memories as markdown
 
 your-project/         <- where you work
   .mcp.json           <- connects Brain
-  CLAUDE.md           <- project-specific rules
+  CLAUDE.md           <- project-specific workflow rules
 ```
 
-Shipwright lives outside your project. Claude reads it for guidance, then applies it to your specific stack and conventions. Skills teach principles -- Claude builds the right thing.
+Shipwright lives outside your project. Claude reads it for guidance, then applies it to your specific stack and conventions. Skills teach principles -- Claude builds the right thing for each project.
 
 ## Three Scopes
 
-- **Team** (committed to shipwright) -- benefits all developers
-- **Developer** (local/, gitignored) -- personal preferences across projects
-- **Project** (in your project's docs/) -- specific to one codebase
+| Scope | Location | Shared with |
+|-------|----------|-------------|
+| **Team** | committed to shipwright | all developers via git |
+| **Developer** | local/ (gitignored) | just you, across projects |
+| **Project** | in your project's docs/ | whoever works on that project |
 
 Learnings flow to the right level. Never up, never sideways.
