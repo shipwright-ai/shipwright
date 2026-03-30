@@ -15,7 +15,7 @@ Not a wizard. Not a questionnaire. A fast, opinionated conversation.
 ## Pre-checks
 
 **Check onboarding state:**
-Read `../shipwright/local/projects/{project-name}/last-sync.md`.
+Read `.claude/shipwright.md` in the project root.
 
 Three possible states:
 

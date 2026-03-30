@@ -25,18 +25,17 @@ brings something new to the table.
 
 ## Progress Tracking
 
-After completing each step, silently update `../shipwright/local/projects/{project-name}/last-sync.md` with current progress. This enables resume if the session is interrupted.
+After completing each step, silently update `.claude/shipwright.md` in the project root with current progress. This enables resume if the session is interrupted and is shared with all developers on the project.
 
 Get the current SHA once at the start:
 ```bash
 git -C ../shipwright rev-parse HEAD
 ```
 
-After each step, write/update last-sync.md:
+After each step, write/update `.claude/shipwright.md`:
 ```markdown
-# Last Sync
+# Shipwright
 
-project: {project-name}
 shipwright_sha: {sha}
 synced_at: {today}
 status: in-progress
@@ -73,9 +72,9 @@ If read-only or developer says no:
 - Ask where they want shipwright instructions to live instead (e.g. a separate
   `.claude/rules/shipwright.md`, or a `SHIPWRIGHT.md` that CLAUDE.md references)
 - Adapt all later steps to write to the agreed location instead of CLAUDE.md
-- Note the alternative in last-sync.md so future sessions know
+- Note the alternative in `.claude/shipwright.md` so future sessions know
 
-**Checkpoint:** Create last-sync.md with step: 1. Also inject a minimal breadcrumb
+**Checkpoint:** Create `.claude/shipwright.md` with step: 1. Also inject a minimal breadcrumb
 into the project's CLAUDE.md (APPEND, don't overwrite):
 
 ```
@@ -233,11 +232,10 @@ Enrich developer profile with observations.
 What was set up. One concrete example of how the workflow works now.
 Suggest next phase based on discovery.
 
-Mark onboarding complete in last-sync.md:
+Mark onboarding complete in `.claude/shipwright.md`:
 ```markdown
-# Last Sync
+# Shipwright
 
-project: {project-name}
 shipwright_sha: {sha}
 synced_at: {today}
 status: complete

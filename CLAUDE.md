@@ -24,9 +24,9 @@ shipwright/
   hooks/                 ← automated gates — shared with entire team via git
   local/                 ← .gitignored — developer's personal space
     preferences.md       ← personal workflow preferences across all projects
-    projects/            ← per-project notes and decisions
-      my-app/            ← scoped to a specific project
-      other-app/
+
+target-project/
+  .claude/shipwright.md  ← onboarding state + sync SHA — committed to project git
 ```
 
 ### Three Scopes of Knowledge
@@ -38,15 +38,16 @@ Benefits all developers. Improved skills, new hooks, community insights.
 Developer discovers something useful → adds to community-insights.md or
 improves a skill → commits and pushes → whole team gets it on next pull.
 
-**Developer scope (local/preferences.md + local/projects/)**
+**Developer scope (local/preferences.md)**
 Personal preferences that follow this developer across all projects.
 "I always want strict linting." "I prefer idea capture in ~/ideas."
 "Remind me to write tests first." Gitignored — never pushed to team.
 
-**Project scope (lives in the target project's own docs/)**
+**Project scope (lives in the target project)**
 Specific to one codebase. Architecture decisions, conventions, personas.
 Stored in the project repo, not in shipwright. Shared with whoever
-works on that project.
+works on that project. Includes `.claude/shipwright.md` — onboarding
+state and sync SHA, committed to git so all developers share it.
 
 ### Decision: Where does this go?
 
@@ -88,10 +89,10 @@ When capturing a new learning or decision, ask:
 
 7. **Updates propagate via git SHA tracking.**
    Each onboarded project stores the last seen shipwright commit SHA in
-   local/projects/{project}/last-sync.md. On next session, Claude Code
-   diffs against current HEAD, filters for relevant changes, and suggests
-   updates. No re-onboarding needed. Decisions the developer already
-   rejected are noted in last-sync.md so they don't get re-suggested.
+   `.claude/shipwright.md` (committed to the project's git). On next session,
+   Claude Code diffs against current HEAD, filters for relevant changes,
+   and suggests updates. No re-onboarding needed. Decisions the developer
+   already rejected are noted in shipwright.md so they don't get re-suggested.
 
 ## How to Work on This Repo
 

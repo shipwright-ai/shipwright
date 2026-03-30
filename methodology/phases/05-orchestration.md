@@ -163,18 +163,18 @@ If yes:
    - Update CLAUDE.md with orchestration workflow
    - Store configuration in Brain for future re-runs
 
-3. Update last-sync.md with phase: 5, step: completed.
+3. Update `.claude/shipwright.md` with phase: 5, step: completed.
 
 If no or not right now → that's fine. Phases 1-3 are a solid workflow on their own.
 Orchestration is there when the project grows or the developer wants more structure.
 
-Note in last-sync.md:
+Note in `.claude/shipwright.md`:
 ```
 phase5_orchestration: declined
 phase5_reason: <what the developer said — "not now", "too complex", etc.>
 ```
 
-On future re-runs (via update.md), if orchestration was declined:
+On future re-runs (via `update.md`), if orchestration was declined:
 - Don't re-offer automatically
 - Only bring it up if the developer explicitly asks or if pain points
   from discovery match what orchestration solves (e.g., "docs are always stale",

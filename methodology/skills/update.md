@@ -8,16 +8,15 @@ figure out what changed and whether it matters for this developer and their proj
 ## How It Works
 
 Each project onboarded by shipwright stores the last seen shipwright commit SHA in:
-`../shipwright/local/projects/{project-name}/last-sync.md`
+`.claude/shipwright.md` (in the project root)
 
-This file is gitignored — it's local to each developer.
+This file is committed to the project's git — shared across all developers.
 
-### Format of last-sync.md
+### Format of .claude/shipwright.md
 
 ```markdown
-# Last Sync
+# Shipwright
 
-project: my-app
 shipwright_sha: abc123f
 synced_at: 2025-03-28
 status: complete
@@ -35,16 +34,16 @@ notes: Initial onboarding — makefile, CLAUDE.md, pre-commit hooks
 ```
 
 **Important:** If `status: in-progress`, the project has an interrupted onboarding.
-Do NOT run the update flow — redirect to setup.md which will handle resuming.
+Do NOT run the update flow — redirect to `setup.md` which will handle resuming.
 
 ## When to Run
 
 At the start of any session where the developer is working on a project
 that has been onboarded with shipwright, check for updates:
 
-1. Read `../shipwright/local/projects/{project-name}/last-sync.md`
+1. Read `.claude/shipwright.md` in the project root
 2. If it doesn't exist, skip — this project hasn't been onboarded yet
-3. If `status: in-progress` → redirect to setup.md to resume onboarding. Stop here.
+3. If `status: in-progress` → redirect to `setup.md` to resume onboarding. Stop here.
 4. Get the stored SHA
 5. Get the current shipwright HEAD: `git -C ../shipwright rev-parse HEAD`
 6. If they match, nothing changed — proceed normally
@@ -103,12 +102,11 @@ Your project has strict mode off — worth considering but not urgent."
 
 ## After Syncing
 
-Update the last-sync.md with the current SHA:
+Update `.claude/shipwright.md` with the current SHA:
 
 ```markdown
-# Last Sync
+# Shipwright
 
-project: my-app
 shipwright_sha: {current_sha}
 synced_at: {today}
 notes: Updated makefile with clean target. Skipped strict mode change — developer decided not now.
