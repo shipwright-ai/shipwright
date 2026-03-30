@@ -31,15 +31,6 @@ Best practices for any project. No dependencies.
 - Quality gates (lint, test before commit)
 - Context compaction for long sessions
 
-```
-Developer: "We need OAuth login"
-
-1. Capture   — Claude creates a tracked idea with checklist steps
-2. Refine    — you and Claude discuss scope, adjust, iterate
-3. Implement — only after you say "go"
-4. Update    — Claude checks off steps, captures decisions
-```
-
 ### Layer 2: Brain (optional, recommended)
 
 Persistent memory via MCP. Needs npm (for npx).
