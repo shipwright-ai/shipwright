@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "shipwright-brain": "github:shipwright-ai/shipwright-brain"
+  }
+}
