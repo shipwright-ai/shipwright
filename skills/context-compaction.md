@@ -43,10 +43,15 @@ Add a post-commit hook that reminds Claude to compact. In the project's
 ```json
 {
   "hooks": {
-    "post-tool-use": [
+    "PostToolUse": [
       {
-        "matcher": "Bash(git commit*)",
-        "command": "echo 'Context boundary: commit completed. Consider compacting if switching tasks.'"
+        "matcher": "Bash(git commit.*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Context boundary: commit completed. Consider compacting if switching tasks.'"
+          }
+        ]
       }
     ]
   }
