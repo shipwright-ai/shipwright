@@ -1,90 +1,116 @@
 # Shipwright
 
-Stop Claude Code from guessing. Shipwright gives it a structured workflow: capture ideas before coding, verify plans with the developer, track progress with checkboxes, and remember decisions across sessions.
+Stop Claude Code from guessing. Shipwright gives it a structured workflow: capture ideas before coding, refine plans with the developer, track progress with checkboxes, and remember everything across sessions.
 
 Clone once, reference from any project. Nothing gets copied in.
 
 ## The Problem
 
-Claude Code is powerful but chaotic. Without structure it:
+Claude Code is powerful but chaotic without structure:
 - Starts coding before understanding the full scope
-- Forgets decisions made earlier in the session
-- Creates duplicate work across sessions
+- Forgets decisions made earlier or in previous sessions
+- Creates duplicate work because it doesn't know what already exists
 - Doesn't track what's done vs what's pending
 - Loses context as conversations grow
 
-## What Shipwright Does
+## What You Get
 
-**Structured workflow** -- Capture, Refine, Implement, Update. Every feature starts as a tracked idea with checkboxes. Claude discusses the plan with the developer before writing code. After implementation, it updates progress and context.
+### A workflow that sticks
 
-**Skills** -- stack-agnostic guidance files that teach Claude patterns, not templates. How to set up a Makefile, when to split CLAUDE.md into rules, how to capture ideas, when to compact context.
-
-**Brain** ([shipwright-brain](https://github.com/shipwright-ai/shipwright-brain)) -- persistent memory via MCP. Ideas, decisions, architecture, bugs -- all as markdown with frontmatter. Brain teaches Claude the right format for each kind, detects duplicates via embeddings, auto-links related memories, and tracks progress through the tree.
-
-**Brain UI** ([brain-ui](https://github.com/shipwright-ai/brain-ui)) -- visual layer for humans. Browse memories, filter by tags and status, view the connection graph, see progress badges. Auto-refreshes as Claude works.
-
-## Key Workflows
-
-### Capture, Refine, Implement, Update
+Every feature follows: **Capture -> Refine -> Implement -> Update**
 
 ```
 Developer: "We need OAuth login"
-    |
-    v
-1. Capture -- Claude creates Brain idea with checklist steps
-2. Refine  -- Developer and Claude discuss, adjust scope, iterate
-3. Implement -- Only after developer says "go"
-4. Update  -- Check off steps, update context, capture decisions
+
+1. Capture   -- Claude creates a tracked idea with checklist steps
+2. Refine    -- You and Claude discuss scope, adjust, iterate
+3. Implement -- Only after you say "go"
+4. Update    -- Claude checks off steps, updates context, captures decisions
 ```
 
-### What Should I Do Next?
+This isn't documentation. It's how Claude actually works in your project -- enforced through CLAUDE.md rules, persistent memory, and MCP tool responses that remind Claude every time it queries Brain.
 
-Claude searches Brain for in-progress ideas first, then not-started ones. The developer picks what to work on. Progress is always visible.
+### Memory that persists
 
-### Smart Context
+[Shipwright Brain](https://github.com/shipwright-ai/shipwright-brain) gives Claude persistent memory via MCP:
 
-Claude compacts context at natural boundaries -- after commits, between tasks. Long sessions stay sharp instead of drowning in old context.
+- **Ideas, decisions, bugs, architecture** -- all tracked as markdown with checkboxes
+- **Progress visible at a glance** -- Brain auto-derives status from checkboxes (not started / in progress / done)
+- **"What should I do next?"** -- finds in-progress work first, then not-started
+- **No duplicates** -- Brain detects similar memories before creating new ones
+- **Smart search** -- hybrid keyword + semantic search finds related work even without exact matches
+- **Self-building graph** -- refs are always bidirectional, content links auto-detected
+
+### A UI for humans
+
+[Brain UI](https://github.com/shipwright-ai/brain-ui) lets you see what Claude sees:
+
+- Browse memories by kind with progress badges
+- Filter by tags, status, sort by date or name
+- View the connection graph between decisions, ideas, and features
+- Auto-refreshes as Claude works
 
 ## Quick Start
 
+### 1. Clone shipwright (once)
+
 ```bash
-# Clone shipwright next to your projects
 git clone https://github.com/shipwright-ai/shipwright.git
-
-# In your project, set up Brain
-npx shipwright-brain init
-
-# Start a Claude Code session and run:
-# "Read ../shipwright/setup.md and onboard this project"
 ```
 
-Onboarding takes 5 minutes. It sets up a Makefile, CLAUDE.md with workflow rules, context compaction, and developer profile. Zero disruption to existing workflows.
+### 2. Set up Brain in your project
+
+```bash
+cd your-project
+npx shipwright-brain init
+```
+
+### 3. Onboard your project (5 minutes)
+
+Open Claude Code in your project and say:
+
+```
+Read ../shipwright/setup.md and onboard this project
+```
+
+Claude walks you through it -- sets up a Makefile, CLAUDE.md with workflow rules, context compaction, and developer profile. Every step is discussed with you first. Nothing happens without your approval.
+
+## What Onboarding Sets Up
+
+| Step | What | Why |
+|------|------|-----|
+| Project understanding | Claude reads your codebase | So everything fits your actual stack |
+| Makefile | Consistent `make test`, `make lint`, `make dev` | One interface for all tools |
+| CLAUDE.md | Workflow rules + context gates | Claude knows how to work in your project |
+| Context compaction | Smart summarization between tasks | Long sessions stay focused |
+| Developer profile | Your preferences and work style | Claude adapts to you |
 
 ## How It Works
 
 ```
-shipwright/           <- methodology (this repo)
+shipwright/           <- methodology (this repo, cloned once)
   skills/             <- what Claude should know
   hooks/              <- quality gates
   setup.md            <- onboarding conversation
 
-shipwright-brain/     <- memory (separate repo)
+shipwright-brain/     <- memory (npm package)
   src/                <- MCP server + API
   docs/               <- all memories as markdown
 
 your-project/         <- where you work
   .mcp.json           <- connects Brain
   CLAUDE.md           <- project-specific workflow rules
+  docs/               <- Brain's memory files
 ```
 
 Shipwright lives outside your project. Claude reads it for guidance, then applies it to your specific stack and conventions. Skills teach principles -- Claude builds the right thing for each project.
 
 ## Three Scopes
 
-| Scope | Location | Shared with |
-|-------|----------|-------------|
-| **Team** | committed to shipwright | all developers via git |
-| **Developer** | local/ (gitignored) | just you, across projects |
-| **Project** | in your project's docs/ | whoever works on that project |
+| Scope | Where | Who benefits |
+|-------|-------|-------------|
+| **Team** | committed to shipwright | all developers via git pull |
+| **Developer** | shipwright/local/ (gitignored) | just you, across all projects |
+| **Project** | your project's docs/ | whoever works on that project |
 
-Learnings flow to the right level. Never up, never sideways.
+New learning? It goes to the right level. Team insights get committed to shipwright. Personal preferences stay local. Project decisions stay in the project.
