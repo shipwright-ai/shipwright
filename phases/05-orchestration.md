@@ -105,7 +105,7 @@ If yes:
    If missing, set it up first (see Phase 1 pre-checks).
 
 2. Run orchestration setup:
-   Read `../shipwright-orchestration/setup.md` and follow it.
+   Read `orchestration/setup.md` and follow it.
 
    Setup will:
    - Discover your project's stack, conventions, and preferences

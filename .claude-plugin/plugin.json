@@ -1,0 +1,8 @@
+{
+  "name": "shipwright",
+  "description": "Development orchestration for Claude Code. Capture ideas, plan with a team, execute with quality gates, keep docs current.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Bartas"
+  }
+}
