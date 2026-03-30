@@ -6,13 +6,15 @@ During a working session, developers often have ideas unrelated to the current t
 These ideas are valuable but acting on them immediately derails focus.
 Capture them quickly, return to the current task.
 
-## Rule: Capture Before Code
+## Rule: Capture, Verify, Then Code
 
-Before implementing any new feature or request, capture it as a Brain idea first.
-Then implement. Never start coding before the idea is captured. This ensures:
-- Every piece of work is tracked and searchable
-- Progress is visible from the start
-- Nothing gets built without a record of why
+Before implementing any new feature or request:
+1. **Capture** — create a Brain idea with checklist steps
+2. **Verify** — present the plan to the developer and wait for approval
+3. **Implement** — only start coding after developer confirms
+
+Never skip step 2. The developer may adjust scope, reorder steps, or say
+"not now." The captured idea becomes the agreed contract for the work.
 
 ## When to Trigger
 
