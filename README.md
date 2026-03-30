@@ -33,18 +33,23 @@ Best practices for any project. No dependencies.
 
 ### Layer 2: Brain (optional, recommended)
 
-Persistent memory via MCP. Needs npm (for npx).
+Persistent, searchable memory via MCP. Needs npm (for npx).
 
-- Ideas, decisions, learnings stored as markdown in `docs/`
-- Progress auto-derived from checkboxes (not started / in progress / done)
-- Semantic + keyword search across sessions
-- Screenshots at multiple breakpoints (mobile, tablet, desktop)
-- No duplicates — Brain detects similar memories before creating
-- Self-building graph — refs are always bidirectional
-
-Browse what Claude sees: `make brain-ui` → http://localhost:3111
+- **Custom kinds** — ideas, decisions, features, bugs, or whatever fits your project
+- **Dynamic tags** — organize however makes sense, no predefined taxonomy
+- **Format guides per kind** — each kind has its own template that Brain uses on creation. Tag-aware: `ideas` tagged `plan` get a different format than plain `ideas`
+- **Sections** — drop .md files next to memory.md, Brain parses them (checklists, progress, agent assignment)
+- **Progress from checkboxes** — no status field. Brain derives not-started / in-progress / done automatically
+- **Semantic + keyword search** — finds related work across sessions, even without exact matches
+- **Screenshots** — capture UI at any breakpoint (375 mobile, 768 tablet, 1280 desktop)
+- **Agent recall** — agents remember learnings across sessions, loaded at every spawn
+- **Duplicate detection** — Brain blocks creation if 90%+ similar memory exists
+- **Self-building graph** — refs are always bidirectional, connections auto-detected
+- **MCP responses steer Claude** — every tool response includes next steps and reminders. Enforcement that doesn't get compacted away
 
 Powered by [Shipwright Brain](https://github.com/shipwright-ai/shipwright-brain).
+
+Browse what Claude sees with [Shipwright UI](https://github.com/shipwright-ai/shipwright-ui): `make brain-ui` → http://localhost:3111
 
 ### Layer 3: Orchestration (optional, needs Brain)
 
