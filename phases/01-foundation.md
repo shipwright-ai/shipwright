@@ -98,15 +98,29 @@ line to remove it — the section now has its final content.
 
 **Save progress →** step: 3
 
-## Step 4: Developer Profile
+## Step 4: Context Compaction
+
+Read `../shipwright/skills/context-compaction.md`.
+
+Explain why smart compaction matters -- context fills up, auto-compression
+loses important details. Offer to set up compaction at natural boundaries
+(after commits, between tasks). Quick conversation:
+
+- If developer works in long sessions → recommend both hook + CLAUDE.md rule
+- If developer works in short focused sessions → mention it exists, skip setup
+- Let developer choose
+
+**Save progress →** step: 4
+
+## Step 5: Developer Profile
 
 If Brain available: `brain.recall_developer_profile()` handles everything.
 If no Brain: check `.claude/developers/{whoami}.md`, create if missing.
 Read `../shipwright/skills/developer-profile.md`.
 
-**Save progress →** step: 4
+**Save progress →** step: 5
 
-## Step 5: Get to Know the Developer
+## Step 6: Get to Know the Developer
 
 Read `../shipwright/skills/developer-discovery.md` and `../shipwright/community-insights.md`.
 
@@ -114,9 +128,9 @@ Quick conversation — biggest pain point, work style.
 Use answers to recommend Phase 2 and 3 options.
 Enrich developer profile with observations.
 
-**Save progress →** step: 5
+**Save progress →** step: 6
 
-## Step 6: Summary
+## Step 7: Summary
 
 What was set up. One concrete example. Suggest next phase based on discovery.
 
@@ -130,14 +144,15 @@ synced_at: {today}
 status: complete
 project_type: {greenfield|existing}
 phase: 1
-step: 6
+step: 7
 completed_steps:
   - "step 1: project understanding"
   - "step 2: makefile"
   - "step 3: claude.md"
-  - "step 4: developer profile"
-  - "step 5: discovery"
-  - "step 6: summary"
+  - "step 4: context compaction"
+  - "step 5: developer profile"
+  - "step 6: discovery"
+  - "step 7: summary"
 notes: {summary of what was set up and key decisions}
 ```
 
