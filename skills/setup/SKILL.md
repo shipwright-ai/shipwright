@@ -1,11 +1,12 @@
 ---
 name: setup
-description: Set up Shipwright for this project — methodology, brain, and orchestration
+description: Set up Shipwright for this project — best practices, memory, and planning
 ---
 
-Read the setup guide and follow it step by step:
+Shipwright has three layers. Check what's already set up and continue from there.
 
-Read setup.md from the shipwright root directory.
+## Layer 1 + 2: Methodology and Brain
+Read methodology/setup.md and follow it.
 
-If the developer specifically wants orchestration (Layer 3):
+## Layer 3: Orchestration (agent teams, needs Brain)
 Read orchestration/setup.md and follow it.

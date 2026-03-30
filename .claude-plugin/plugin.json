@@ -1,6 +1,6 @@
 {
   "name": "shipwright",
-  "description": "Development orchestration for Claude Code. Capture ideas, plan with a team, execute with quality gates, keep docs current.",
+  "description": "Toolkit for Claude Code — best practices, persistent memory, and agent-team planning. Take what you need.",
   "version": "0.1.0",
   "author": {
     "name": "Bartas"
