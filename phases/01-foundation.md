@@ -76,6 +76,17 @@ Run: make lint | make test | make dev
 Before writing code → read docs/conventions.md
 Before decisions → read docs/decisions.md
 
+## Idea Capture
+Before implementing any new feature or request, capture it as a Brain idea first.
+Then implement. Never code before capturing.
+Read ../shipwright/skills/idea-capture.md for the full workflow.
+
+## Post-Implementation
+After completing a feature or fix:
+1. Update the related Brain idea — check off completed steps, add new ones if scope changed
+2. Update context (Why/What/Who/How) if decisions were made during implementation
+3. Run make lint and make test
+
 ## Shipwright
 Skills: ../shipwright/skills/
 ```
