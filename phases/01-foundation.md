@@ -64,6 +64,17 @@ Look for: README, package.json, pyproject.toml, src/, any code.
   Wait for confirmation before proceeding.
 - **Greenfield:** Read `../shipwright/skills/greenfield.md`. Return here after scaffold.
 
+**Check CLAUDE.md access:** If a CLAUDE.md exists, ask the developer:
+> "I need to add a few sections to CLAUDE.md for the workflow to work --
+> idea tracking, post-implementation checks, and a pointer to shipwright skills.
+> Is it OK to modify CLAUDE.md, or is it managed externally / read-only?"
+
+If read-only or developer says no:
+- Ask where they want shipwright instructions to live instead (e.g. a separate
+  `.claude/rules/shipwright.md`, or a `SHIPWRIGHT.md` that CLAUDE.md references)
+- Adapt all later steps to write to the agreed location instead of CLAUDE.md
+- Note the alternative in last-sync.md so future sessions know
+
 **Checkpoint:** Create last-sync.md with step: 1. Also inject a minimal breadcrumb
 into the project's CLAUDE.md (APPEND, don't overwrite):
 
