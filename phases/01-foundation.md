@@ -96,6 +96,32 @@ Skills: ../shipwright/skills/
 **Important:** Keep the `## Shipwright` section from Step 1. Update the "Onboarding in progress"
 line to remove it — the section now has its final content.
 
+**Write the feedback memory** — this survives compaction and loads every session.
+Create `.claude/memory/feedback_capture_before_code.md` in the project:
+
+```markdown
+---
+name: capture before code
+description: Never implement without capturing to Brain first and getting developer approval
+type: feedback
+---
+
+Always capture work as a Brain idea before implementing. Then refine the plan
+with the developer until they approve. Never start coding without this step.
+
+**Why:** Without capture, work goes untracked, duplicates happen across sessions,
+and Claude starts coding before the developer agrees on scope.
+
+**How to apply:** On any new feature, fix, or request: 1) brain.create_memory,
+2) discuss plan with developer, 3) implement only after approval,
+4) update the idea when done.
+```
+
+Also add a pointer to this file in `.claude/memory/MEMORY.md`:
+```
+- [Capture before code](feedback_capture_before_code.md) — never implement without Brain idea + developer approval
+```
+
 **Save progress →** step: 3
 
 ## Step 4: Context Compaction
