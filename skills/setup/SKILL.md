@@ -1,6 +1,6 @@
 ---
 name: setup
-description: Set up Shipwright for this project — best practices, memory, and planning
+description: Set up Shipwright — a la carte toolkit for best practices, memory, and planning
 ---
 
 Shipwright has three layers. Check what's already set up and continue from there.

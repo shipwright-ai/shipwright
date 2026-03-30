@@ -1,6 +1,6 @@
 # Shipwright
 
-Stop Claude Code from guessing. Shipwright gives it structured workflows: best practices, persistent memory, and agent-team orchestration — take what you need.
+A la carte toolkit for Claude Code. Best practices, persistent memory, and agent-team planning — pick what fits your project.
 
 ## Install
 

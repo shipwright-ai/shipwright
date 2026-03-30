@@ -1,6 +1,6 @@
 {
   "name": "shipwright",
-  "description": "Toolkit for Claude Code — best practices, persistent memory, and agent-team planning. Take what you need.",
+  "description": "A la carte toolkit for Claude Code. Best practices, persistent memory, and agent-team planning — pick what fits your project.",
   "version": "0.1.0",
   "author": {
     "name": "Bartas"
