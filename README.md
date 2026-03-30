@@ -47,7 +47,7 @@ Persistent, searchable memory via MCP. Needs npm (for npx).
 - **Self-building graph** — refs are always bidirectional, connections auto-detected
 - **MCP responses steer Claude** — every tool response includes next steps and reminders. Enforcement that doesn't get compacted away
 
-Powered by [Shipwright Brain](https://github.com/shipwright-ai/shipwright-brain).
+Powered by [Shipwright Brain](https://github.com/shipwright-ai/shipwright-brain). Can also be installed standalone: `/plugin install shipwright-brain`.
 
 Browse what Claude sees with [Shipwright UI](https://github.com/shipwright-ai/shipwright-ui): `make brain-ui` → http://localhost:3111
 
