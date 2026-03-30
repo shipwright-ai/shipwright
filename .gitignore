@@ -1,5 +1,6 @@
 # Developer's personal space — never committed
 local/
+methodology/local/
 
 # OS
 .DS_Store
@@ -10,5 +11,12 @@ Thumbs.db
 .env.*
 !.env.example
 
+# Node
+node_modules/
+package-lock.json
+
 # Claude Code
 .claude/settings.local.json
+
+# Brain MCP (generated per project, not part of shipwright)
+.mcp.json
