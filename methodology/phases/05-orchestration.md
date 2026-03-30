@@ -80,11 +80,59 @@ Additional agents recommended based on your project:
 
 ## Requirements
 
-- **Brain must be set up** — orchestration uses Brain for all memory, search,
-  progress tracking, and agent recall. If Brain isn't configured, this phase
-  can't work.
 - **Phases 1-3 should be complete** — Makefile, CLAUDE.md workflow rules, and
   idea capture form the foundation that orchestration builds on.
+- **Brain must be set up** — orchestration runs entirely on Brain. If it's not
+  configured yet, now is the time. Here's what you're getting:
+
+### Why Brain
+
+Brain is persistent memory for Claude Code — but it's more than a note-taking tool.
+
+**Everything is markdown files.** No database, no server to maintain. All memories
+live in `docs/` as human-readable markdown, versioned with git alongside your code.
+You can read, edit, or delete them directly. Claude uses MCP tools to create and
+search them. Setup takes 2 minutes: `npx shipwright-brain init`.
+
+**Hybrid search finds things by meaning.** Ask "how do we handle authentication?"
+and Brain finds memories about tokens, sessions, login flows — even without exact
+keyword matches. Local embeddings (no API calls, fully offline) combine with keyword
+search for accurate results.
+
+**Progress tracking from checkboxes.** Every `- [ ]` and `- [x]` in a memory file
+is tracked automatically. Status (not started / in progress / done) derives from
+checkboxes — no fields to update manually. Progress rolls up from work-items to
+plans to ideas, so you always see the big picture.
+
+**Duplicate detection before creation.** Brain checks for similar memories before
+creating new ones. 90%+ similar → blocked with merge suggestion. 60-89% → created
+but auto-linked as related. No accidental redundancy.
+
+**Agent memory across sessions.** Each agent (developer, reviewer, critic) stores
+what it learned. Next session, those learnings load automatically at spawn. The
+developer agent remembers "async tests need promise flushing in this project."
+The reviewer remembers "this team prefers explicit error types over generic catches."
+Agents get better the more you use them.
+
+**Developer profile that adapts.** Brain observes how you prefer to work — terse
+or detailed responses, how much autonomy you want, which topics you care about.
+Every agent loads this profile so the experience feels consistent.
+
+**A graph of connected knowledge.** Decisions reference the ideas that created them.
+Work-items link back to plans. Architecture docs reference features. All references
+are bidirectional and auto-maintained. Delete a memory and back-references clean up.
+
+**Screenshots with click automation.** Capture UI state at mobile (375px), tablet
+(768px), and desktop viewports. Click through login flows or modals before capturing.
+Screenshots attach to memories as living documentation.
+
+**A web UI to see what Claude sees.** Browse memories by kind, filter by tags and
+status, view the connection graph, search with relevance scores. Auto-refreshes as
+Claude works. Open `http://localhost:3111` and you see your project's knowledge base.
+
+Brain is the foundation that makes orchestration possible — and it's useful on its
+own even without orchestration. Every memory, decision, and learning your team
+creates is searchable, connected, and persistent.
 
 ## How to start
 
